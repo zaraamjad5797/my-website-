@@ -123,6 +123,13 @@ function checkout() {
         "\n\nTotal: Rs. " + total;
 
     const whatsappNumber = "923224091127";
+    const confirmOrder = confirm(
+    "Your order total is Rs. " + total + ". Do you want to continue to WhatsApp?"
+);
+
+if (!confirmOrder) {
+    return;
+                                }
 
     window.open(
         "https://wa.me/" + whatsappNumber +
