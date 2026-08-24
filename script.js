@@ -60,6 +60,8 @@ function updateCart() {
 function removeItem(index) {
     cartItems.splice(index, 1);
 
+    saveCart();
+
     document.getElementById("cart-count").textContent =
         cartItems.reduce((total, item) => total + item.quantity, 0);
 
@@ -85,7 +87,7 @@ saveCart();
     document.getElementById("cart-count").textContent =
         cartItems.reduce((total, item) => total + item.quantity, 0);
 
-    updateCart();
+    updateCart(<button onclick="removeItem(${index})">🗑️ Remove</button>);
 }
 
 function closeCart() {
