@@ -575,3 +575,15 @@ html {
     border-radius: 20px;
     cursor: pointer;
 }
+.cart-item {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.cart-item button {
+    margin: 5px;
+    padding: 5px 8px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    }
