@@ -51,8 +51,18 @@ function updateCart() {
                 Rs. ${item.price} × ${item.quantity}
                 <br>
                 <button onclick="changeQuantity(${index}, -1)">➖</button>
-                <strong>${item.quantity}</strong>
-                <button onclick="changeQuantity(${index}, 1)">➕</button>
+<strong>${item.quantity}</strong>
+<button onclick="changeQuantity(${index}, 1)">➕</button>
+
+<button onclick="removeItem(${index})">🗑️ Remove</button>
+function removeItem(index) {
+    cartItems.splice(index, 1);
+
+    document.getElementById("cart-count").textContent =
+        cartItems.reduce((total, item) => total + item.quantity, 0);
+
+    updateCart();
+}
             </div>
         `;
     }).join("<hr>");
