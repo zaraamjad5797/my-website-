@@ -23,19 +23,20 @@ function openCart() {
 
     if (cartItems.length === 0) {
         message.innerHTML = "Your cart is empty.";
-    } else {
-        let total = 0;
-
-        const products = cartItems.map(item => {
-            total += item.price;
-            return "• " + item.name + " — Rs. " + item.price;
-        }).join("<br>");
-
-        message.innerHTML =
-            "<strong>Your Products:</strong><br><br>" +
-            products +
-            "<br><br><strong>Total: Rs. " + total + "</strong>";
+        return;
     }
+
+    let total = 0;
+
+    const products = cartItems.map(item => {
+        total += item.price;
+        return "• " + item.name + " — Rs. " + item.price;
+    }).join("<br>");
+
+    message.innerHTML =
+        "<strong>Your Products:</strong><br><br>" +
+        products +
+        "<br><br><strong>Total: Rs. " + total + "</strong>";
 }
 
 function closeCart() {
@@ -44,8 +45,7 @@ function closeCart() {
 
 function clearCart() {
     cartItems = [];
-
-    document.getElementById("cart-count").textContent = 0;
+    document.getElementById("cart-count").textContent = "0";
     document.getElementById("cart-message").innerHTML =
         "Your cart is empty.";
 }
@@ -58,17 +58,16 @@ function checkout() {
 
     const order = cartItems
         .map(item => item.name + " — Rs. " + item.price)
-        .join(", ");
+        .join("\n");
 
-    const total = cartItems.reduce(
-        (sum, item) => sum + item.price,
-        0
-    );
+    const total = cartItems.reduce((sum, item) => {
+        return sum + item.price;
+    }, 0);
 
     const message =
-        "Hello! I want to order:%0A%0A" +
+        "Hello! I want to order:\n\n" +
         order +
-        "%0A%0ATotal: Rs. " + total;
+        "\n\nTotal: Rs. " + total;
 
     const whatsappNumber = "923224091127";
 
