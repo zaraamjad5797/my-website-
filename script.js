@@ -1,8 +1,10 @@
 let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-
+function saveCart() {
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+}
 function addToCart(button, productName, price) {
     price = Number(price) || 0;
-
+saveCart();
     const existingItem = cartItems.find(
         item => item.name === productName
     );
@@ -75,7 +77,7 @@ function removeItem(index) {
 
 function changeQuantity(index, change) {
     cartItems[index].quantity += change;
-
+saveCart();
     if (cartItems[index].quantity <= 0) {
         cartItems.splice(index, 1);
     }
@@ -88,12 +90,14 @@ function changeQuantity(index, change) {
 
 function closeCart() {
     document.getElementById("cart-panel").style.display = "none";
+    saveCart();
 }
 
 function clearCart() {
     cartItems = [];
     document.getElementById("cart-count").textContent = "0";
     updateCart();
+    saveCart();
 }
 
 function checkout() {
@@ -126,3 +130,5 @@ function checkout() {
         "_blank"
     );
                     }
+document.getElementById("cart-count").textContent =
+    cartItems.reduce((total, item) => total + item.quantity, 0);
