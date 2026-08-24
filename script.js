@@ -3,10 +3,7 @@ let cartCount = 0;
 function addToCart(button) {
     cartCount++;
 
-    const count = document.getElementById("cart-count");
-    if (count) {
-        count.textContent = cartCount;
-    }
+    document.getElementById("cart-count").textContent = cartCount;
 
     button.textContent = "Added ✓";
 
