@@ -587,3 +587,14 @@ html {
     border-radius: 6px;
     cursor: pointer;
     }
+.cart-item button {
+    margin: 5px;
+    padding: 5px 8px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.cart-item button:hover {
+    opacity: 0.8;
+}
