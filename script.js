@@ -3,7 +3,7 @@ let cartItems = [];
 function addToCart(button, productName, price) {
     cartItems.push({
         name: productName,
-        price: Number(price)
+        price: Number(price) || 0
     });
 
     document.getElementById("cart-count").textContent = cartItems.length;
