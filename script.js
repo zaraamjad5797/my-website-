@@ -1,12 +1,24 @@
 let cartItems = [];
 
 function addToCart(button, productName, price) {
-    cartItems.push({
-        name: productName,
-        price: Number(price) || 0
-    });
+    price = Number(price) || 0;
 
-    document.getElementById("cart-count").textContent = cartItems.length;
+    const existingItem = cartItems.find(
+        item => item.name === productName
+    );
+
+    if (existingItem) {
+        existingItem.quantity++;
+    } else {
+        cartItems.push({
+            name: productName,
+            price: price,
+            quantity: 1
+        });
+    }
+
+    document.getElementById("cart-count").textContent =
+        cartItems.reduce((total, item) => total + item.quantity, 0);
 
     button.textContent = "Added ✓";
 
@@ -16,10 +28,12 @@ function addToCart(button, productName, price) {
 }
 
 function openCart() {
-    const panel = document.getElementById("cart-panel");
-    const message = document.getElementById("cart-message");
+    document.getElementById("cart-panel").style.display = "block";
+    updateCart();
+}
 
-    panel.style.display = "block";
+function updateCart() {
+    const message = document.getElementById("cart-message");
 
     if (cartItems.length === 0) {
         message.innerHTML = "Your cart is empty.";
@@ -28,15 +42,38 @@ function openCart() {
 
     let total = 0;
 
-    const products = cartItems.map(item => {
-        total += item.price;
-        return "• " + item.name + " — Rs. " + item.price;
-    }).join("<br>");
+    const products = cartItems.map((item, index) => {
+        total += item.price * item.quantity;
+
+        return `
+            <div class="cart-item">
+                <strong>${item.name}</strong><br>
+                Rs. ${item.price} × ${item.quantity}
+                <br>
+                <button onclick="changeQuantity(${index}, -1)">➖</button>
+                <strong>${item.quantity}</strong>
+                <button onclick="changeQuantity(${index}, 1)">➕</button>
+            </div>
+        `;
+    }).join("<hr>");
 
     message.innerHTML =
         "<strong>Your Products:</strong><br><br>" +
         products +
-        "<br><br><strong>Total: Rs. " + total + "</strong>";
+        "<br><strong>Total: Rs. " + total + "</strong>";
+}
+
+function changeQuantity(index, change) {
+    cartItems[index].quantity += change;
+
+    if (cartItems[index].quantity <= 0) {
+        cartItems.splice(index, 1);
+    }
+
+    document.getElementById("cart-count").textContent =
+        cartItems.reduce((total, item) => total + item.quantity, 0);
+
+    updateCart();
 }
 
 function closeCart() {
@@ -46,8 +83,7 @@ function closeCart() {
 function clearCart() {
     cartItems = [];
     document.getElementById("cart-count").textContent = "0";
-    document.getElementById("cart-message").innerHTML =
-        "Your cart is empty.";
+    updateCart();
 }
 
 function checkout() {
@@ -56,13 +92,16 @@ function checkout() {
         return;
     }
 
-    const order = cartItems
-        .map(item => item.name + " — Rs. " + item.price)
-        .join("\n");
+    const order = cartItems.map(item =>
+        item.name +
+        " — Qty: " + item.quantity +
+        " — Rs. " + (item.price * item.quantity)
+    ).join("\n");
 
-    const total = cartItems.reduce((sum, item) => {
-        return sum + item.price;
-    }, 0);
+    const total = cartItems.reduce(
+        (sum, item) => sum + item.price * item.quantity,
+        0
+    );
 
     const message =
         "Hello! I want to order:\n\n" +
@@ -76,4 +115,4 @@ function checkout() {
         "?text=" + encodeURIComponent(message),
         "_blank"
     );
-}
+                    }
