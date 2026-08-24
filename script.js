@@ -31,4 +31,10 @@ function openCart() {
 
 function closeCart() {
     document.getElementById("cart-panel").style.display = "none";
+}function clearCart() {
+    cartCount = 0;
+    cartItems = [];
+
+    document.getElementById("cart-count").textContent = 0;
+    document.getElementById("cart-message").textContent = "Your cart is empty.";
 }
