@@ -132,3 +132,6 @@ function checkout() {
                     }
 document.getElementById("cart-count").textContent =
     cartItems.reduce((total, item) => total + item.quantity, 0);
+if (cartItems.length > 0) {
+    updateCart();
+}
