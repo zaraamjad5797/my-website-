@@ -86,8 +86,8 @@ saveCart();
 
     document.getElementById("cart-count").textContent =
         cartItems.reduce((total, item) => total + item.quantity, 0);
-
-    updateCart(<button onclick="removeItem(${index})">🗑️ Remove</button>);
+<button onclick="removeItem(${index})">🗑️ Remove</button>
+    updateCart();
 }
 
 function closeCart() {
