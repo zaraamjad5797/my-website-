@@ -38,3 +38,19 @@ function closeCart() {
     document.getElementById("cart-count").textContent = 0;
     document.getElementById("cart-message").textContent = "Your cart is empty.";
 }
+function checkout() {
+    if (cartItems.length === 0) {
+        alert("Your cart is empty!");
+        return;
+    }
+
+    const order = cartItems.join(", ");
+    const message = "Hello! I want to order: " + order;
+
+    const whatsappNumber = "923224091127";
+
+    window.open(
+        "https://wa.me/" + whatsappNumber + "?text=" + encodeURIComponent(message),
+        "_blank"
+    );
+}
