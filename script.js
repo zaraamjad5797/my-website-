@@ -1,7 +1,9 @@
 let cartCount = 0;
+let cartItems = [];
 
-function addToCart(button) {
+function addToCart(button, productName) {
     cartCount++;
+    cartItems.push(productName);
 
     document.getElementById("cart-count").textContent = cartCount;
 
@@ -18,10 +20,12 @@ function openCart() {
 
     panel.style.display = "block";
 
-    if (cartCount === 0) {
-        message.textContent = "Your cart is empty.";
+    if (cartItems.length === 0) {
+        message.innerHTML = "Your cart is empty.";
     } else {
-        message.textContent = cartCount + " product(s) added to your cart.";
+        message.innerHTML =
+            "<strong>Your Products:</strong><br><br>" +
+            cartItems.map(item => "• " + item).join("<br>");
     }
 }
 
