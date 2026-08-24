@@ -1,11 +1,12 @@
-let cartCount = 0;
 let cartItems = [];
 
-function addToCart(button, productName) {
-    cartCount++;
-    cartItems.push(productName);
+function addToCart(button, productName, price) {
+    cartItems.push({
+        name: productName,
+        price: Number(price)
+    });
 
-    document.getElementById("cart-count").textContent = cartCount;
+    document.getElementById("cart-count").textContent = cartItems.length;
 
     button.textContent = "Added ✓";
 
@@ -23,34 +24,57 @@ function openCart() {
     if (cartItems.length === 0) {
         message.innerHTML = "Your cart is empty.";
     } else {
+        let total = 0;
+
+        const products = cartItems.map(item => {
+            total += item.price;
+            return "• " + item.name + " — Rs. " + item.price;
+        }).join("<br>");
+
         message.innerHTML =
             "<strong>Your Products:</strong><br><br>" +
-            cartItems.map(item => "• " + item).join("<br>");
+            products +
+            "<br><br><strong>Total: Rs. " + total + "</strong>";
     }
 }
 
 function closeCart() {
     document.getElementById("cart-panel").style.display = "none";
-}function clearCart() {
-    cartCount = 0;
+}
+
+function clearCart() {
     cartItems = [];
 
     document.getElementById("cart-count").textContent = 0;
-    document.getElementById("cart-message").textContent = "Your cart is empty.";
+    document.getElementById("cart-message").innerHTML =
+        "Your cart is empty.";
 }
+
 function checkout() {
     if (cartItems.length === 0) {
         alert("Your cart is empty!");
         return;
     }
 
-    const order = cartItems.join(", ");
-    const message = "Hello! I want to order: " + order;
+    const order = cartItems
+        .map(item => item.name + " — Rs. " + item.price)
+        .join(", ");
+
+    const total = cartItems.reduce(
+        (sum, item) => sum + item.price,
+        0
+    );
+
+    const message =
+        "Hello! I want to order:%0A%0A" +
+        order +
+        "%0A%0ATotal: Rs. " + total;
 
     const whatsappNumber = "923224091127";
 
     window.open(
-        "https://wa.me/" + whatsappNumber + "?text=" + encodeURIComponent(message),
+        "https://wa.me/" + whatsappNumber +
+        "?text=" + encodeURIComponent(message),
         "_blank"
     );
 }
