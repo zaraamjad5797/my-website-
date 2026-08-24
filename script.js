@@ -1,4 +1,4 @@
-let cartItems = [];
+let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
 
 function addToCart(button, productName, price) {
     price = Number(price) || 0;
