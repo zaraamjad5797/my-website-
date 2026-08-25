@@ -660,3 +660,46 @@ html {
     cursor: pointer;
     font-size: 18px;
 }
+.dark-mode {
+    background-color: #1a1a1a;
+    color: white;
+}
+
+.dark-mode header,
+.dark-mode .white-section,
+.dark-mode .about,
+.dark-mode .product-card,
+.dark-mode .category,
+.dark-mode .cart-panel {
+    background-color: #2a2a2a;
+    color: white;
+}
+
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode p,
+.dark-mode a {
+    color: white;
+}
+
+.dark-mode .section-title {
+    color: white;
+}
+
+.dark-mode .dark-mode-btn {
+    background-color: #444;
+    color: white;
+}
+
+.dark-mode .product-rating span {
+    color: #ddd;
+}
+
+.dark-mode-btn {
+    border: none;
+    padding: 10px 14px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+}
