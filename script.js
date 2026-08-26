@@ -220,3 +220,17 @@ function toggleDarkMode() {
 if (localStorage.getItem("darkMode") === "true") {
     document.body.classList.add("dark-mode");
 }
+function filterProducts(category) {
+    const products = document.querySelectorAll(".product-card");
+
+    products.forEach(product => {
+        if (
+            category === "all" ||
+            product.dataset.category === category
+        ) {
+            product.style.display = "";
+        } else {
+            product.style.display = "none";
+        }
+    });
+}
