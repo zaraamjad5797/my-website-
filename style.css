@@ -909,3 +909,53 @@ body {
         width: 100%;
     }
 }
+/* Professional Search Bar */
+
+.search-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 25px auto 35px;
+    padding: 0 20px;
+}
+
+#product-search {
+    width: 100%;
+    max-width: 500px;
+    padding: 15px 22px;
+    border: 2px solid #e0d5cc;
+    border-radius: 30px;
+    font-size: 16px;
+    outline: none;
+    background: white;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+#product-search:focus {
+    border-color: #b86b4b;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.dark-mode #product-search {
+    background: #333;
+    color: white;
+    border-color: #555;
+}
+
+.dark-mode #product-search::placeholder {
+    color: #bbb;
+}
+
+@media (max-width: 768px) {
+    .search-container {
+        padding: 0;
+    }
+
+    #product-search {
+        width: 100%;
+        font-size: 15px;
+        padding: 14px 18px;
+    }
+}
