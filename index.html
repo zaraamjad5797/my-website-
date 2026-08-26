@@ -190,10 +190,16 @@
     </div>
           </section>
         </h2>
-
+<div class="filter-buttons">
+    <button onclick="filterProducts('all')">All</button>
+    <button onclick="filterProducts('canvas')">Canvas</button>
+    <button onclick="filterProducts('handmade')">Handmade</button>
+    <button onclick="filterProducts('kit')">Art Kits</button>
+    <button onclick="filterProducts('gift')">Gifts</button>
+</div>
         <div class="products">
 
-            <div class="product">
+            <div class="product" data-category="canvas">
                 <div class="product-image">🎨</div>
                 <h3>Floral Canvas</h3>
                 <p class="price">Rs. 2,500</p>
@@ -203,7 +209,7 @@
                 </a>
             </div>
 
-            <div class="product">
+            <div class="product" data-category="handmade">
                 <div class="product-image">🧶</div>
                 <h3>Handmade Craft</h3>
                 <p class="price">Rs. 1,800</p>
@@ -213,7 +219,7 @@
                 </a>
             </div>
 
-            <div class="product">
+            <div class="product" data-category="kit">
                 <div class="product-image">✂️</div>
                 <h3>Creative Art Kit</h3>
                 <p class="price">Rs. 1,200</p>
@@ -223,7 +229,7 @@
                 </a>
             </div>
 
-            <div class="product">
+            <div class="product" data-category="gift">
                 <div class="product-image">🎁</div>
                 <h3>Custom Gift</h3>
                 <p class="price">Rs. 3,000</p>
