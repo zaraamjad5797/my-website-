@@ -1301,3 +1301,136 @@ button:active,
         padding: 30px 20px;
     }
     }
+/* Custom Order Section */
+
+.custom-order {
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 70px 40px;
+}
+
+.custom-order-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+
+    padding: 50px;
+    border-radius: 28px;
+    background: linear-gradient(135deg, #fff8f3, #f3e3d8);
+}
+
+.custom-order-text span {
+    color: #8b5e4a;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.custom-order-text h2 {
+    font-size: 40px;
+    margin: 15px 0;
+}
+
+.custom-order-text > p {
+    color: #666;
+    line-height: 1.8;
+    font-size: 16px;
+}
+
+.custom-points {
+    margin-top: 25px;
+}
+
+.custom-points p {
+    margin: 12px 0;
+    font-weight: 500;
+}
+
+.custom-order-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    padding: 30px;
+    border-radius: 20px;
+    background: white;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.custom-order-form input,
+.custom-order-form select,
+.custom-order-form textarea {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 15px;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+.custom-order-form textarea {
+    resize: vertical;
+}
+
+.custom-order-form button {
+    padding: 15px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+/* Dark Mode */
+
+.dark-mode .custom-order-content {
+    background: linear-gradient(135deg, #2a2523, #1e1e1e);
+}
+
+.dark-mode .custom-order-text h2,
+.dark-mode .custom-order-text > p,
+.dark-mode .custom-points p {
+    color: white;
+}
+
+.dark-mode .custom-order-form {
+    background: #2a2a2a;
+}
+
+.dark-mode .custom-order-form input,
+.dark-mode .custom-order-form select,
+.dark-mode .custom-order-form textarea {
+    background: #333;
+    color: white;
+    border-color: #555;
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+    .custom-order {
+        margin: 50px auto;
+        padding: 40px 20px;
+    }
+
+    .custom-order-content {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        padding: 30px 20px;
+    }
+
+    .custom-order-text {
+        text-align: center;
+    }
+
+    .custom-order-text h2 {
+        font-size: 30px;
+    }
+
+    .custom-order-form {
+        padding: 22px;
+    }
+}
