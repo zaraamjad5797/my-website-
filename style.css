@@ -1434,3 +1434,109 @@ button:active,
         padding: 22px;
     }
 }
+/* Quick View Modal */
+
+.quick-view-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.quick-view-modal.show {
+    display: flex;
+}
+
+.quick-view-content {
+    position: relative;
+    width: 100%;
+    max-width: 450px;
+    max-height: 90vh;
+    overflow-y: auto;
+
+    padding: 30px;
+    border-radius: 24px;
+    background: #fff;
+
+    text-align: center;
+
+    animation: quickViewPop 0.3s ease;
+}
+
+.quick-view-content img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 16px;
+    margin-bottom: 20px;
+}
+
+.quick-view-content h2 {
+    margin: 10px 0;
+    font-size: 28px;
+}
+
+#quick-view-price {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+#quick-view-description {
+    line-height: 1.6;
+    color: #666;
+}
+
+.close-quick-view {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+
+    width: 38px;
+    height: 38px;
+
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+
+    font-size: 18px;
+}
+
+@keyframes quickViewPop {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Dark Mode */
+.dark-mode .quick-view-content {
+    background: #2a2a2a;
+    color: white;
+}
+
+.dark-mode #quick-view-description {
+    color: #ddd;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .quick-view-content {
+        padding: 25px 20px;
+    }
+
+    .quick-view-content img {
+        height: 220px;
+    }
+    }
