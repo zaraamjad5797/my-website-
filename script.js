@@ -249,3 +249,26 @@ function filterProducts(category) {
 
 window.addEventListener("scroll", revealOnScroll);
 window.addEventListener("load", revealOnScroll);
+function sendCustomOrder(event) {
+    event.preventDefault();
+
+    const name = document.getElementById("customer-name").value;
+    const product = document.getElementById("custom-product").value;
+    const request = document.getElementById("custom-request").value;
+
+    const message =
+        "Hello! I want to place a Custom Order.%0A%0A" +
+        "Name: " + name + "%0A" +
+        "Product Type: " + product + "%0A" +
+        "My Idea: " + request;
+
+    const whatsappNumber = "923224091127";
+
+    window.open(
+        "https://wa.me/" +
+        whatsappNumber +
+        "?text=" +
+        encodeURIComponent(message),
+        "_blank"
+    );
+}
