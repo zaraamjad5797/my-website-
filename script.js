@@ -272,3 +272,37 @@ function sendCustomOrder(event) {
         "_blank"
     );
 }
+function openQuickView(button) {
+    const product =
+        button.closest(".product, .product-card");
+
+    const image =
+        product.querySelector("img").src;
+
+    const title =
+        product.querySelector("h3").textContent;
+
+    const priceElement =
+        Array.from(product.querySelectorAll("p"))
+            .find(p => p.textContent.includes("Rs."));
+
+    const price = priceElement
+        ? priceElement.textContent
+        : "";
+
+    document.getElementById("quick-view-image").src = image;
+
+    document.getElementById("quick-view-title").textContent = title;
+
+    document.getElementById("quick-view-price").textContent = price;
+
+    document
+        .getElementById("quick-view-modal")
+        .classList.add("show");
+}
+
+function closeQuickView() {
+    document
+        .getElementById("quick-view-modal")
+        .classList.remove("show");
+}
