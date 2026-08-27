@@ -304,6 +304,62 @@
     </div>
 
     </section>
+    <!-- Custom Order Section -->
+<section class="custom-order reveal" id="custom-order">
+
+    <div class="custom-order-content">
+
+        <div class="custom-order-text">
+            <span>✦ CUSTOM MADE FOR YOU</span>
+
+            <h2>Bring Your Creative Idea to Life</h2>
+
+            <p>
+                Have a special idea, personalized gift, or custom art request?
+                Tell us what you have in mind and we'll help turn your idea
+                into something beautiful and meaningful.
+            </p>
+
+            <div class="custom-points">
+                <p>🎨 Personalized Artwork</p>
+                <p>🎁 Custom Gifts</p>
+                <p>💐 Special Memory Frames</p>
+            </div>
+        </div>
+
+        <form class="custom-order-form" onsubmit="sendCustomOrder(event)">
+
+            <input
+                type="text"
+                id="customer-name"
+                placeholder="Your Name"
+                required
+            >
+
+            <select id="custom-product" required>
+                <option value="">Select Product Type</option>
+                <option value="Custom Artwork">Custom Artwork</option>
+                <option value="Personalized Gift">Personalized Gift</option>
+                <option value="Memory Frame">Memory Frame</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <textarea
+                id="custom-request"
+                placeholder="Tell us about your idea..."
+                rows="5"
+                required
+            ></textarea>
+
+            <button type="submit">
+                Send Request on WhatsApp ✦
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
     <  <!-- Testimonials -->
 <section class="testimonials reveal">
 
