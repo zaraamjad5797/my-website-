@@ -1,7 +1,6 @@
-let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-
+let cart = JSON.parse(localStorage.getItem("artCraftCart")) || [];
 function saveCart() {
-    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    localStorage.setItem("artCraftCart", JSON.stringify(cart));
 }
 
 function addToCart(button, productName, price) {
@@ -14,6 +13,7 @@ function addToCart(button, productName, price) {
 
         const priceText = card.querySelector("strong").textContent;
         price = Number(priceText.replace(/[^\d]/g, ""));
+        saveCart();
     }
 
     price = Number(price) || 0;
@@ -54,6 +54,7 @@ function openCart() {
 
 function closeCart() {
     document.getElementById("cart-panel").style.display = "none";
+    saveCart();
 }
 
 function updateCart() {
@@ -63,6 +64,7 @@ function updateCart() {
     if (cartItems.length === 0) {
         message.innerHTML = "Your cart is empty 🛒";
         return;
+        saveCart();
     }
 
     let total = 0;
@@ -306,3 +308,6 @@ function closeQuickView() {
         .getElementById("quick-view-modal")
         .classList.remove("show");
 }
+window.addEventListener("load", () => {
+    updateCart();
+});
