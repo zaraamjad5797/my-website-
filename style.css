@@ -1201,3 +1201,103 @@ button:active,
     opacity: 1;
     transform: translateY(0);
 }
+/* Why Choose Us Section */
+
+.why-choose {
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 70px 40px;
+    text-align: center;
+}
+
+.why-heading {
+    max-width: 700px;
+    margin: 0 auto 50px;
+}
+
+.why-heading span {
+    display: inline-block;
+    color: #8b5e4a;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.why-heading h2 {
+    font-size: 38px;
+    margin: 10px 0 15px;
+}
+
+.why-heading p {
+    line-height: 1.7;
+    color: #777;
+}
+
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.why-card {
+    padding: 35px 25px;
+    border-radius: 20px;
+    background: #fff8f3;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.why-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.why-icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.why-card h3 {
+    margin-bottom: 12px;
+    font-size: 21px;
+}
+
+.why-card p {
+    color: #777;
+    line-height: 1.6;
+}
+
+/* Dark Mode */
+
+.dark-mode .why-card {
+    background: #2a2523;
+}
+
+.dark-mode .why-heading h2,
+.dark-mode .why-card h3,
+.dark-mode .why-heading p,
+.dark-mode .why-card p {
+    color: white;
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+
+    .why-choose {
+        margin: 50px auto;
+        padding: 50px 20px;
+    }
+
+    .why-heading h2 {
+        font-size: 30px;
+    }
+
+    .why-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .why-card {
+        padding: 30px 20px;
+    }
+    }
