@@ -1608,3 +1608,43 @@ textarea {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
 }
+/* ===== BIGGER FEATURED FLOWER ===== */
+
+.featured-image {
+    position: relative;
+    overflow: visible;
+}
+
+.featured-emoji {
+    position: absolute;
+    left: 25px;
+    bottom: 25px;
+
+    width: 95px;
+    height: 95px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 65px;
+    line-height: 1;
+
+    background: transparent;
+    border-radius: 50%;
+
+    z-index: 5;
+
+    animation: flowerFloat 3s ease-in-out infinite;
+}
+
+/* Mobile par bhi flower properly visible rahe */
+@media (max-width: 768px) {
+    .featured-emoji {
+        width: 110px;
+        height: 110px;
+        font-size: 80px;
+        left: 20px;
+        bottom: 20px;
+    }
+}
