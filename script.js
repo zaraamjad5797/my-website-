@@ -126,28 +126,46 @@ function clearCart() {
 // 3. WHATSAPP CHECKOUT & CUSTOM ORDER SYSTEMS
 // =========================================================================
 function checkout() {
+function checkout() {
     if (cart.length === 0) {
         alert("Your cart is empty!");
         return;
     }
 
     const order = cart.map(item =>
-        item.name + " - Qty: " + item.quantity + " - Rs. " + (item.price * item.quantity)
+        item.name + " - Qty: " + item.quantity
     ).join("\n");
 
-    const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-    const message = "Hello! I want to order:\n\n" + order + "\n\nTotal: Rs. " + total;
+    const total = cart.reduce((sum, item) =>
+        sum + (item.price * item.quantity), 0
+    );
 
-    const confirmOrder = confirm("Your order total is Rs. " + total + ". Do you want to continue to WhatsApp?");
+    const message =
+        "Hello! I want to place an order from Art & Craft.\n\n" +
+        order +
+        "\n\nTotal: Rs. " + total;
+
+    const confirmOrder = confirm(
+        "Your order total is Rs. " + total + ".\n\nContinue to WhatsApp?"
+    );
+
     if (!confirmOrder) return;
 
     const whatsappNumber = "923224091127";
-    window.open("https://wa.me" + whatsappNumber + "?text=" + encodeURIComponent(message), "_blank");
+    const whatsappURL =
+        "https://wa.me/" + whatsappNumber +
+        "?text=" + encodeURIComponent(message);
+
+    window.open(whatsappURL, "_blank");
 }
 
 function sendCustomOrder(event) {
     event.preventDefault();
-
+window.open(
+    "https://wa.me/" + whatsappNumber +
+    "?text=" + encodeURIComponent(message),
+    "_blank"
+);
     const name = document.getElementById("customer-name").value;
     const product = document.getElementById("custom-product").value;
     const request = document.getElementById("custom-request").value;
