@@ -1648,3 +1648,36 @@ textarea {
         bottom: 20px;
     }
 }
+/* ===== FIRST PRODUCTS MATCH OTHER PRODUCT CARDS ===== */
+
+.products .product {
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.products .product h3 {
+    font-family: "Playfair Display", serif;
+    font-size: 1.45rem;
+    line-height: 1.3;
+    margin: 18px 10px 8px;
+}
+
+.products .product p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 8px 12px;
+}
+
+.products .product .price {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin: 15px 0;
+}
+
+.products .product button {
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+    padding: 12px 24px;
+    border-radius: 30px;
+}
