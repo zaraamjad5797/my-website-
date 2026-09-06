@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art & Craft</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <div class="logo">Art <span>&</span> Craft</div>
+
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#shop">Shop</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </div>
+
+        <button type="button" onclick="openCart()">
+            🛒 Cart (<span id="cart-count">0</span>)
+        </button>
+
+        <button type="button" class="dark-mode-btn" onclick="toggleDarkMode()">🌙</button>
+    </nav>
+
+    <div id="cart-panel">
+        <button type="button" onclick="closeCart()">✕</button>
+        <h2>Your Cart 🛒</h2>
+        <div id="cart-message">Your cart is empty 🛒</div>
+        <button type="button" onclick="clearCart()">Clear Cart</button>
+        <button type="button" onclick="checkout()">Checkout on WhatsApp</button>
+    </div>
+</header>
+
+<section class="hero" id="home">
+    <div class="hero-content">
+        <h1>Handmade Art That Tells Your Story ✨</h1>
+        <p>
+            Discover beautiful customized resin art, preserved memories,
+            handmade crafts and unique gifts made especially for you.
+        </p>
+        <a href="#shop" class="hero-btn">Shop Now</a>
+    </div>
+</section>
+
+<section class="white-section">
+    <h2 class="section-title">Explore Categories</h2>
+
+    <div class="categories">
+        <div class="category">
+            <div class="emoji">🎨</div>
+            <h3>Paintings</h3>
+            <div class="product-rating">⭐⭐⭐⭐⭐ <span>(5.0)</span></div>
+        </div>
+
+        <div class="category">
+            <div class="emoji">🧶</div>
+            <h3>Handmade Crafts</h3>
+            <div class="product-rating">⭐⭐⭐⭐⭐ <span>(5.0)</span></div>
+        </div>
+
+        <div class="category">
+            <div class="emoji">✂️</div>
+            <h3>Craft Supplies</h3>
+            <div class="product-rating">⭐⭐⭐⭐⭐ <span>(5.0)</span></div>
+        </div>
+
+        <div class="category">
+            <div class="emoji">🎁</div>
+            <h3>Custom Gifts</h3>
+            <div class="product-rating">⭐⭐⭐⭐⭐ <span>(5.0)</span></div>
+        </div>
+    </div>
+</section>
+
+<section id="shop">
+    <h2 class="section-title">Featured Products</h2>
+
+    <section class="products-section reveal">
+        <h2>Our Products</h2>
+        <p class="section-subtitle">Handmade creations made especially for you ✨</p>
+
+        <div class="product-grid">
+
+            <div class="product-card reveal" data-category="handmade">
+                <div class="product-image reveal">
+                    <img src="Screenshot_20260817_220254_Google.jpg" alt="Customized Resin Art">
+                    <span class="handmade-badge">Handmade with Love ✦</span>
+                </div>
+                <h3>Customized Resin Art</h3>
+                <p>Beautiful resin pieces customized especially for you.</p>
+                <strong>Rs. 1,500</strong>
+                <button type="button" onclick="addToCart(this, 'Customized Resin Art', '1500')">Add to Cart</button>
+                <button type="button" class="quick-view-btn" onclick="openQuickView(this)">Quick View 👁️</button>
+                <div class="product-rating">⭐⭐⭐⭐⭐ <span>(5.0)</span></div>
+            </div>
+
+            <div class="product-card reveal" data-category="handmade">
+                <div class="product-image reveal">
+                    <img src="Screenshot_20260817_220417_Google.jpg" alt="Preserved Flower Frame">
+                    <span class="handmade-badge">Handmade with Love ✦</span>
+                </div>
+                <h3>Preserved Flower Frame</h3>
+                <p>Preserve your beautiful memories in a handmade frame.</p>
+                <strong>Rs. 2,500</strong>
+                <button type="button" onclick="addToCart(this, 'Preserved Flower Frame', '2500')">Add to Cart</button>
+                <button type="button" class="quick-view-btn" onclick="openQuickView(this)">Quick View 👁️</button>
+                <div class="product-rating">⭐⭐⭐⭐⭐ <span>(5.0)</span></div>
+            </div>
+
+            <div class="product-card reveal" data-category="gift">
+                <div class="product-image reveal">
+                    <img src="Screenshot_20260817_220524_Google.jpg" alt="Customized Gift">
+                    <span class="handmade-badge">Handmade with Love ✦</span>
+                </div>
+                <h3>Customized Gift</h3>
+                <p>Personalized handmade gifts for your special moments.</p>
+                <strong>Rs. 1,200</strong>
+                <button type="button" onclick="addToCart(this, 'Customized Gift', '1200')">Add to Cart</button>
+                <button type="button" class="quick-view-btn" onclick="openQuickView(this)">Quick View 👁️</button>
+                <div class="product-rating">⭐⭐⭐⭐⭐ <span>(5.0)</span></div>
+            </div>
+
+            <div class="product-card reveal" data-category="handmade">
+                <div class="product-image reveal">
+                    <img src="Screenshot_20260817_220706_Google.jpg" alt="Preserved Memories">
+                    <span class="handmade-badge">Handmade with Love ✦</span>
+                </div>
+                <h3>Preserved Memories</h3>
+                <p>Turn flowers and special memories into lasting artwork.</p>
+                <strong>Rs. 3,000</strong>
+                <button type="button" onclick="addToCart(this, 'Preserved Memories', '3000')">Add to Cart</button>
+                <button type="button" class="quick-view-btn" onclick="openQuickView(this)">Quick View 👁️</button>
+                <div class="product-rating">⭐⭐⭐⭐⭐ <span>(5.0)</span></div>
+            </div>
+
+            <div class="product-card reveal" data-category="gift">
+                <div class="product-image reveal">
+                    <img src="Screenshot_20260827_200937_Google.jpg" alt="Custom Gift">
+                    <span class="handmade-badge">Handmade with Love ✦</span>
+                </div>
+                <h3>Custom Gift</h3>
+                <p>Personalized gifts made especially for your loved ones.</p>
+                <strong>Rs. 2,500</strong>
+                <button type="button" onclick="addToCart(this, 'Custom Gift', '2500')">Add to Cart</button>
+                <button type="button" class="quick-view-btn" onclick="openQuickView(this)">Quick View 👁️</button>
+                <div class="product-rating">⭐⭐⭐⭐⭐ <span>(5.0)</span></div>
+            </div>
+
+            <div class="product-card reveal" data-category="kit">
+                <div class="product-image reveal">
+                    <img src="Screenshot_20260827_200759_Google.jpg" alt="Creative Art Kit">
+                    <span class="handmade-badge">Handmade with Love ✦</span>
+                </div>
+                <h3>Creative Art Kit</h3>
+                <p>Everything you need to explore your creativity.</p>
+                <strong>Rs. 1,800</strong>
+                <button type="button" onclick="addToCart(this, 'Creative Art Kit', '1800')">Add to Cart</button>
+                <button type="button" class="quick-view-btn" onclick="openQuickView(this)">Quick View 👁️</button>
+                <div class="product-rating">⭐⭐⭐⭐⭐ <span>(5.0)</span></div>
+            </div>
+
+            <div class="product-card reveal" data-category="handmade">
+                <div class="product-image reveal">
+                    <img src="Screenshot_20260827_200641_Google.jpg" alt="Handmade Craft">
+                    <span class="handmade-badge">Handmade with Love ✦</span>
+                </div>
+                <h3>Handmade Craft</h3>
+                <p>Beautiful handmade crafts created with care and creativity.</p>
+                <strong>Rs. 1,200</strong>
+                <button type="button" onclick="addToCart(this, 'Handmade Craft', '1200')">Add to Cart</button>
+                <button type="button" class="quick-view-btn" onclick="openQuickView(this)">Quick View 👁️</button>
+                <div class="product-rating">⭐⭐⭐⭐⭐ <span>(5.0)</span></div>
+            </div>
+
+            <div class="product-card reveal" data-category="canvas">
+                <div class="product-image reveal">
+                    <img src="Screenshot_20260827_200539_Google.jpg" alt="Floral Canvas">
+                    <span class="handmade-badge">Handmade with Love ✦</span>
+                </div>
+                <h3>Floral Canvas</h3>
+                <p>Elegant floral artwork to add beauty to your space.</p>
+                <strong>Rs. 3,000</strong>
+                <button type="button" onclick="addToCart(this, 'Floral Canvas', '3000')">Add to Cart</button>
+                <button type="button" class="quick-view-btn" onclick="openQuickView(this)">Quick View 👁️</button>
+                <div class="product-rating">⭐⭐⭐⭐⭐ <span>(5.0)</span></div>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="filter-buttons">
+        <button type="button" onclick="filterProducts('all')">All</button>
+        <button type="button" onclick="filterProducts('canvas')">Canvas</button>
+        <button type="button" onclick="filterProducts('handmade')">Handmade</button>
+        <button type="button" onclick="filterProducts('kit')">Art Kits</button>
+        <button type="button" onclick="filterProducts('gift')">Gifts</button>
+    </div>
+</section>
+
+<section class="featured-product">
+    <div class="featured-image">
+        <img src="Screenshot_20260817_220417_Google.jpg" alt="Featured Handmade Creation">
+        <span class="featured-emoji">🌸</span>
+    </div>
+
+    <div class="featured-content">
+        <span class="featured-label">✦ Featured Creation of the Week</span>
+        <h2>Preserved Flower Frame</h2>
+        <p>
+            A beautiful handmade keepsake created to preserve
+            your special memories in a unique and meaningful way.
+        </p>
+        <p class="featured-price">Rs. 2,500</p>
+
+        <button type="button" onclick="addToCart(this, 'Preserved Flower Frame', '2500')">
+            Add to Cart
+        </button>
+
+        <button type="button" class="quick-view-btn" onclick="openQuickView(this)">
+            Quick View 👁️
+        </button>
+    </div>
+</section>
+
+<section class="why-choose reveal">
+    <div class="why-heading">
+        <span>✦ WHY CHOOSE US</span>
+        <h2>Created with Heart, Made for Memories</h2>
+        <p>Every creation is designed to make your special moments even more meaningful.</p>
+    </div>
+
+    <div class="why-grid">
+        <div class="why-card">
+            <div class="why-icon">🎨</div>
+            <h3>100% Handmade</h3>
+            <p>Every piece is carefully crafted with creativity and attention to detail.</p>
+        </div>
+
+        <div class="why-card">
+            <div class="why-icon">💝</div>
+            <h3>Made with Love</h3>
+            <p>We put passion and care into every creation we make.</p>
+        </div>
+
+        <div class="why-card">
+            <div class="why-icon">🎁</div>
+            <h3>Custom Creations</h3>
+            <p>Personalized gifts and designs created especially for your special moments.</p>
+        </div>
+    </div>
+</section>
+
+<section class="custom-order reveal" id="custom-order">
+    <div class="custom-order-content">
+
+        <div class="custom-order-text">
+            <span>✦ CUSTOM MADE FOR YOU</span>
+            <h2>Bring Your Creative Idea to Life</h2>
+            <p>
+                Have a special idea, personalized gift, or custom art request?
+                Tell us what you have in mind and we'll help turn your idea
+                into something beautiful and meaningful.
+            </p>
+
+            <div class="custom-points">
+                <p>🎨 Personalized Artwork</p>
+                <p>🎁 Custom Gifts</p>
+                <p>💐 Special Memory Frames</p>
+            </div>
+        </div>
+
+        <form class="custom-order-form" onsubmit="sendCustomOrder(event)">
+            <input type="text" id="customer-name" placeholder="Your Name" required>
+
+            <select id="custom-product" required>
+                <option value="">Select Product Type</option>
+                <option value="Custom Artwork">Custom Artwork</option>
+                <option value="Personalized Gift">Personalized Gift</option>
+                <option value="Memory Frame">Memory Frame</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <textarea id="custom-request" placeholder="Tell us about your idea..." rows="5" required></textarea>
+
+            <button type="submit">Send Request on WhatsApp ✦</button>
+        </form>
+
+    </div>
+</section>
+
+<section class="testimonials reveal">
+    <h2 class="section-title">What Our Customers Say</h2>
+
+    <div class="testimonial-grid">
+        <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p>"Absolutely loved my customized resin piece! The quality and finishing were beautiful."</p>
+            <h4>— Happy Customer</h4>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p>"My preserved flowers turned out so beautiful. Such a special way to keep memories forever!"</p>
+            <h4>— Satisfied Customer</h4>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p>"Beautiful handmade work and amazing customization. Highly recommended!"</p>
+            <h4>— Art Lover</h4>
+        </div>
+    </div>
+</section>
+
+<section class="about reveal" id="about">
+    <div class="about-content">
+        <h2 class="section-title">Create. Craft. Inspire.</h2>
+        <p>
+            Art & Craft is a creative store where handmade art,
+            crafts and beautiful ideas come together.
+        </p>
+    </div>
+</section>
+
+<section class="white-section reveal" id="contact">
+    <h2 class="section-title">Contact Us</h2>
+
+    <p class="contact-text">
+        Have a custom order or a question? Send us a message!
+    </p>
+
+    <div class="contact-details">
+        <p>📧 zaraamjadab@gmail.com</p>
+        <p>📱 03224091127</p>
+    </div>
+
+    <form class="contact-form">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Write your message..." rows="5" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+</section>
+
+<footer>
+    <h3>Art & Craft</h3>
+    <p>Handmade creativity made with love. ✨</p>
+
+    <div class="social-links">
+        <a href="#">Instagram</a>
+        <a href="#">Facebook</a>
+        <a href="https://wa.me/923224091127" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+
+    <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#about">About Us</a>
+        <a href="#contact">Contact</a>
+        <a href="#custom-order">Custom Order</a>
+    </div>
+
+    <p>© 2026 Art & Craft. All Rights Reserved.</p>
+</footer>
+
+<!-- Quick View Modal -->
+<div id="quick-view-modal" class="quick-view-modal">
+    <div class="quick-view-content">
+        <button type="button" class="close-quick-view" onclick="closeQuickView()">✕</button>
+        <img id="quick-view-image" src="" alt="Product Image">
+        <h2 id="quick-view-title"></h2>
+        <p id="quick-view-price"></p>
+        <p id="quick-view-description">
+            A beautiful handmade creation made with care and creativity.
+        </p>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
